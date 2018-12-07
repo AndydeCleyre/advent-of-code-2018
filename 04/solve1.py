@@ -17,8 +17,14 @@ def parse(log):
             for moment in range(sleep_start, minute):
                 sleepy_minutes[guard][moment] += 1
             # sleep_start = None  # pointless, or safety feature?
-    sleepy_guard = max(sleepy_minutes, key=lambda id: sum(sleepy_minutes[id].values()))
-    sleepy_minute = max(sleepy_minutes[sleepy_guard], key=sleepy_minutes[sleepy_guard].get)
+    sleepy_guard = max(
+        sleepy_minutes,
+        key=lambda id: sum(sleepy_minutes[id].values())
+    )
+    sleepy_minute = max(
+        sleepy_minutes[sleepy_guard],
+        key=sleepy_minutes[sleepy_guard].get
+    )
     return sleepy_guard * sleepy_minute
 
 

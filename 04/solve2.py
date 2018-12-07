@@ -17,8 +17,14 @@ def parse(log):
             for moment in range(sleep_start, minute):
                 sleepy_minutes[guard][moment] += 1
             # sleep_start = None  # pointless, or safety feature?
-    consistent_guard = max(sleepy_minutes, key=lambda id: max(sleepy_minutes[id].values()))
-    consistent_minute = max(sleepy_minutes[consistent_guard], key=sleepy_minutes[consistent_guard].get)
+    consistent_guard = max(
+        sleepy_minutes,
+        key=lambda id: max(sleepy_minutes[id].values())
+    )
+    consistent_minute = max(
+        sleepy_minutes[consistent_guard],
+        key=sleepy_minutes[consistent_guard].get
+    )
     return consistent_guard * consistent_minute
 
 
