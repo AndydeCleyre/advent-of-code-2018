@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 
 def parse(log):
-    sleepy_minutes = defaultdict(lambda: defaultdict(int))
+    sleepy_minutes = defaultdict(Counter)
     guard = None
     sleep_start = None
     for line in log:
